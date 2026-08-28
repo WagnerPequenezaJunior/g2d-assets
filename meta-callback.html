@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G2D - Meta Callback</title>
+</head>
+<body>
+  <h1>G2D - Meta OAuth Callback</h1>
+  <p id="status">Processando retorno da Meta...</p>
+
+  <script>
+    const params = new URLSearchParams(window.location.hash.substring(1));
+
+    if (params.has("access_token")) {
+      document.getElementById("status").innerHTML =
+        "<strong>Autorização recebida com sucesso.</strong><br><br>" +
+        "O token está presente no navegador.<br>" +
+        "Não compartilhe, não envie print e não publique esta URL.";
+    } else {
+      document.getElementById("status").innerHTML =
+        "<strong>Nenhum token recebido.</strong><br><br>" +
+        "Retorno: " + window.location.href;
+    }
+  </script>
+</body>
+</html>
